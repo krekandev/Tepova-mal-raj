@@ -1,0 +1,6 @@
+{
+  "name": "Tepovač - Profesionálne Čistenie & Tepovanie",
+  "description": "Profesionálne čistenie a tepovanie áut, leštenie karosérie a hĺbkové tepovanie nábytku. Boris Hadvig - Bratislava, Senec, Pezinok a okolie.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
