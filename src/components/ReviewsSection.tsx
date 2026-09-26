@@ -1,91 +1,132 @@
 import React from 'react';
-import { Star, Instagram } from 'lucide-react';
+import { Star, Facebook, Instagram } from 'lucide-react';
 import { REVIEWS, BUSINESS_INFO } from '../data';
+
+import { Card } from '@/components/ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
 
 export const ReviewsSection: React.FC = () => {
   return (
-    <section id="recenzie" className="py-24 bg-black relative border-t border-zinc-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="recenzie" className="py-24 lg:py-32 relative bg-[#0a0f1d] text-white border-y border-white/10 overflow-hidden">
+      {/* Ambient Red Glow */}
+      <div className="absolute top-1/2 right-10 -translate-y-1/2 w-96 h-96 bg-red-600/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold tracking-widest text-[#dc2626] uppercase mb-2 block">
-            HODNOTENIA ZÁKAZNÍKOV
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-['Space_Grotesk'] text-white tracking-tight mb-4">
-            Čo o našej práci hovoria zákazníci?
-          </h2>
-          <p className="text-zinc-400 text-base sm:text-lg">
-            Spokojnosť klientov a precíznosť ("pán si dal naozaj záležať") sú pre nás vždy na prvom mieste.
+        {/* Asymmetric Section Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
+          <div className="space-y-3">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-semibold text-red-400 tracking-wider">
+              <span>04</span>
+              <span>/</span>
+              <span className="text-white">HODNOTENIA & SPOKOJNOSŤ</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-black tracking-tighter text-white leading-[1.02]">
+              Čo o našej práci <br className="hidden sm:inline" />
+              <span className="text-red-500">hovoria zákazníci.</span>
+            </h2>
+          </div>
+          <p className="text-sm sm:text-base text-slate-300 max-w-sm leading-relaxed font-normal">
+            Spokojnosť klientov a precíznosť s prístupom „pán si dal naozaj záležať“ sú pre nás vždy na prvom mieste.
           </p>
         </div>
 
-        {/* Reviews Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {REVIEWS.map((rev) => (
-            <div
-              key={rev.id}
-              className="p-8 rounded-3xl bg-zinc-950 border border-zinc-800 hover:border-[#dc2626]/50 transition-all flex flex-col justify-between shadow-xl group relative"
-            >
-              <div className="space-y-4">
-                {/* Rating Stars */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1 text-[#dc2626]">
-                    {[...Array(rev.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-[#dc2626] stroke-[#dc2626]" />
-                    ))}
-                  </div>
-                </div>
-
-                {/* Quote */}
-                <p className="text-zinc-200 text-base italic leading-relaxed font-serif pt-2">
-                  "{rev.quote}"
-                </p>
-              </div>
-
-              {/* Author Footer */}
-              <div className="pt-6 mt-6 border-t border-zinc-800/80 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#dc2626] text-white font-extrabold text-lg flex items-center justify-center shadow-md">
-                  {rev.avatarInitial || rev.author[0]}
-                </div>
-                <div>
-                  <div className="font-bold text-white text-base font-['Space_Grotesk']">
-                    {rev.author}
-                  </div>
-                  <div className="text-xs text-zinc-400">
-                    {rev.serviceType}
-                  </div>
-                </div>
-              </div>
+        {/* Reviews Carousel using shadcn */}
+        <div className="relative mb-14">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <div className="flex items-center justify-end gap-2 mb-4">
+              <CarouselPrevious className="relative inset-auto translate-y-0 rounded-lg border border-white/20 bg-white/10 hover:bg-white/20 text-white" />
+              <CarouselNext className="relative inset-auto translate-y-0 rounded-lg border border-white/20 bg-white/10 hover:bg-white/20 text-white" />
             </div>
-          ))}
+
+            <CarouselContent className="-ml-4">
+              {REVIEWS.map((rev) => (
+                <CarouselItem key={rev.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <Card className="p-8 rounded-2xl bg-white/[0.06] border border-white/15 hover:border-white/30 transition-all flex flex-col justify-between h-full backdrop-blur-xl shadow-xl space-y-4">
+                    <div className="space-y-3">
+                      {/* Rating Stars */}
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-1 text-amber-400">
+                          {[...Array(rev.rating)].map((_, i) => (
+                            <Star key={i} className="w-3.5 h-3.5 fill-amber-400 stroke-amber-400" />
+                          ))}
+                        </div>
+                        <span className="text-[11px] font-mono text-slate-400">
+                          {rev.date}
+                        </span>
+                      </div>
+
+                      {/* Quote */}
+                      <p className="text-slate-200 text-xs sm:text-sm leading-relaxed italic">
+                        „{rev.quote}“
+                      </p>
+                    </div>
+
+                    {/* Author Footer */}
+                    <div className="pt-4 border-t border-white/10 flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-lg bg-red-600/20 border border-red-500/30 text-red-400 font-bold text-xs flex items-center justify-center shrink-0">
+                        {rev.avatarInitial || rev.author[0]}
+                      </div>
+                      <div>
+                        <div className="font-bold text-white text-sm">
+                          {rev.author}
+                        </div>
+                        <div className="text-[11px] font-mono text-slate-400">
+                          {rev.serviceType} • {rev.location}
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
 
-        {/* Social Followers Banner */}
-        <div className="max-w-3xl mx-auto p-6 rounded-3xl bg-zinc-950 border border-zinc-800 text-center flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+        {/* Social Proof Banner in Glass */}
+        <div className="max-w-4xl mx-auto p-7 sm:p-8 rounded-2xl bg-white/[0.05] border border-white/10 backdrop-blur-xl flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="flex items-center gap-4 text-left">
-            <div className="w-12 h-12 rounded-2xl bg-[#dc2626] shrink-0 flex items-center justify-center text-white shadow-lg">
-              <Instagram className="w-6 h-6" />
+            <div className="w-12 h-12 rounded-xl bg-red-600/20 border border-red-500/30 shrink-0 flex items-center justify-center text-red-400 shadow-xs">
+              <Facebook className="w-6 h-6" />
             </div>
             <div>
-              <div className="text-lg font-bold text-white font-['Space_Grotesk']">
-                Viac ako {BUSINESS_INFO.followersCount} sledovateľov na Instagrame
+              <div className="text-base sm:text-lg font-bold text-white">
+                Sledujte reálne recenzie a výsledky na sociálnych sieťach
               </div>
-              <p className="text-xs text-zinc-400">
-                Pozrite si najnovšie videá, príbehy a premeny na profile @BorisHadvig
+              <p className="text-xs text-slate-400 mt-0.5">
+                Viac ako {BUSINESS_INFO.followersCount} sledovateľov na oficiálnej stránke Tepovač.
               </p>
             </div>
           </div>
 
-          <a
-            href={BUSINESS_INFO.instagramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 rounded-2xl bg-zinc-900 hover:bg-zinc-800 text-white font-bold text-xs sm:text-sm border border-zinc-800 shrink-0 transition-all flex items-center gap-2"
-          >
-            <Instagram className="w-4 h-4 text-[#dc2626]" />
-            <span>Navštíviť Instagram</span>
-          </a>
+          <div className="flex items-center gap-3 w-full sm:w-auto">
+            {BUSINESS_INFO.facebookUrl && (
+              <a
+                href={BUSINESS_INFO.facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs border border-white/20 transition-all flex items-center justify-center gap-2 shrink-0 active:scale-[0.98]"
+              >
+                <Facebook className="w-4 h-4 text-red-400" />
+                <span>Facebook</span>
+              </a>
+            )}
+            <a
+              href={BUSINESS_INFO.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs border border-white/20 transition-all flex items-center justify-center gap-2 shrink-0 active:scale-[0.98]"
+            >
+              <Instagram className="w-4 h-4 text-red-400" />
+              <span>Instagram</span>
+            </a>
+          </div>
         </div>
 
       </div>

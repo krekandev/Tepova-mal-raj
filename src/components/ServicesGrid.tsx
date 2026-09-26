@@ -1,126 +1,148 @@
 import React, { useState } from 'react';
-import { Car, Sparkles, Sofa, CheckCircle2, Clock, ArrowRight, ShieldCheck, Phone } from 'lucide-react';
+import { Car, Sparkles, Sofa, CheckCircle2, Clock, Phone, ShieldCheck } from 'lucide-react';
 import { SERVICES, BUSINESS_INFO } from '../data';
+import { ServiceItem } from '../types';
+import { Card, CardContent } from '@/components/ui/card';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { ServiceDetailDialog } from './ServiceDetailDialog';
 
-interface ServicesGridProps {
-  onSelectService: (serviceTitle: string) => void;
-}
-
-export const ServicesGrid: React.FC<ServicesGridProps> = ({ onSelectService }) => {
+export const ServicesGrid: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const [dialogService, setDialogService] = useState<ServiceItem | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Car':
-        return <Car className="w-5 h-5 text-[#dc2626]" />;
+        return <Car className="w-5 h-5 text-red-600" />;
       case 'Sparkles':
-        return <Sparkles className="w-5 h-5 text-[#dc2626]" />;
+        return <Sparkles className="w-5 h-5 text-red-600" />;
       case 'Sofa':
-        return <Sofa className="w-5 h-5 text-[#dc2626]" />;
+        return <Sofa className="w-5 h-5 text-red-600" />;
       default:
-        return <Sparkles className="w-5 h-5 text-[#dc2626]" />;
+        return <Sparkles className="w-5 h-5 text-red-600" />;
     }
   };
 
   const currentService = SERVICES[activeTab] || SERVICES[0];
 
+  const handleOpenDialog = (service: ServiceItem) => {
+    setDialogService(service);
+    setIsDialogOpen(true);
+  };
+
   return (
-    <section id="sluzby" className="py-24 bg-black relative border-t border-zinc-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="sluzby" className="py-16 sm:py-24 relative bg-[#edf2f7] border-b border-slate-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header without cliché badges */}
-        <div className="max-w-3xl mb-12">
-          <span className="text-xs font-bold tracking-widest text-[#dc2626] uppercase mb-2 block">
-            DETAILNÝ PREHĽAD SLUŽIEB
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-['Space_Grotesk'] text-white tracking-tight">
-            Čo všetko pre vás vyčistíme?
-          </h2>
-          <p className="text-zinc-400 text-base sm:text-lg mt-3">
-            Komplexná starostlivosť o vozidlá a čalúnený nábytok s dôrazom na najvyšší štandard čistenia.
+        {/* Asymmetric Section Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
+          <div className="space-y-3">
+            <div className="flex items-center gap-2 font-mono text-[11px] font-semibold text-slate-400 tracking-wider">
+              <span>01</span>
+              <span>/</span>
+              <span className="text-slate-800">PORTFÓLIO SLUŽIEB</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-black tracking-tighter text-slate-950 leading-[1.02]">
+              Všetko, čo pre vás <br className="hidden sm:inline" />
+              <span className="text-red-600">profesionálne vyčistíme.</span>
+            </h2>
+          </div>
+          <p className="text-sm sm:text-base text-slate-600 max-w-md leading-relaxed font-normal">
+            Komplexná starostlivosť o vozidlá a čalúnený nábytok s dôrazom na poctivý výsledok, overené postupy a individuálny prístup ku každému zákazníkovi.
           </p>
         </div>
 
-        {/* Tab Selection Row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-10">
+        {/* Tab Selection Segmented Control */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-10 p-1.5 rounded-xl bg-slate-200/70 border border-slate-300/80">
           {SERVICES.map((service, index) => {
             const isActive = activeTab === index;
             return (
               <button
                 key={service.id}
                 onClick={() => setActiveTab(index)}
-                className={`p-5 rounded-2xl text-left transition-all flex items-center justify-between border ${
+                className={`p-3.5 rounded-lg text-left transition-all flex items-center justify-between cursor-pointer ${
                   isActive
-                    ? 'bg-zinc-900 border-[#dc2626] shadow-lg shadow-[#dc2626]/10 text-white'
-                    : 'bg-zinc-950/80 border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700'
+                    ? 'bg-white text-slate-950 font-bold border border-slate-200/90 shadow-md'
+                    : 'text-slate-600 hover:text-slate-950 hover:bg-white/60 font-medium'
                 }`}
               >
-                <div>
-                  <div className="font-bold font-['Space_Grotesk'] text-base text-white">
-                    {service.title}
+                <div className="flex items-center gap-3">
+                  <div className={`p-2 rounded-md ${isActive ? 'bg-red-50 text-red-600' : 'bg-slate-200/60 text-slate-600'}`}>
+                    {getIcon(service.iconName)}
                   </div>
-                  <div className="text-xs text-zinc-500 font-medium mt-0.5">
-                    {service.priceStarting} • {service.durationEstimate}
+                  <div>
+                    <div className="text-sm font-bold text-slate-950">
+                      {service.title}
+                    </div>
+                    <div className="text-xs font-mono text-slate-500 font-normal">
+                      {service.durationEstimate}
+                    </div>
                   </div>
                 </div>
-                <div className={`w-2 h-2 rounded-full ${isActive ? 'bg-[#dc2626]' : 'bg-zinc-800'}`} />
+                <div className={`w-2 h-2 rounded-full ${isActive ? 'bg-red-600' : 'bg-transparent'}`} />
               </button>
             );
           })}
         </div>
 
-        {/* Active Service Deep Dive Showcase */}
-        <div className="rounded-3xl bg-zinc-950 border border-zinc-800 p-6 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        {/* Active Service Showcase Card using shadcn Card & AspectRatio */}
+        <Card className="rounded-2xl bg-white border border-slate-200/90 p-6 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-[0_12px_36px_rgba(0,0,0,0.07)]">
           
-          {/* Image Side */}
-          <div className="lg:col-span-6 relative rounded-2xl overflow-hidden border border-zinc-800 group h-[320px] sm:h-[400px]">
-            <img
-              src={currentService.imageUrl}
-              alt={currentService.title}
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-            
-            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between bg-black/80 backdrop-blur-md p-4 rounded-xl border border-zinc-800">
-              <div className="flex items-center gap-2 text-xs font-semibold text-zinc-300">
-                <Clock className="w-4 h-4 text-[#dc2626]" />
-                <span>Odhadovaný čas: {currentService.durationEstimate}</span>
+          {/* Image Side with AspectRatio */}
+          <div className="lg:col-span-6 relative rounded-xl overflow-hidden border border-slate-200/80 group bg-slate-100">
+            <AspectRatio ratio={16 / 10} className="w-full">
+              <img
+                src={currentService.imageUrl}
+                alt={currentService.title}
+                className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent" />
+              
+              <div className="absolute top-4 left-4">
+                <span className="px-3 py-1 rounded-md bg-white/95 backdrop-blur-md text-slate-900 font-bold text-xs shadow-xs">
+                  {currentService.popularTag}
+                </span>
               </div>
-              <div className="text-sm font-extrabold text-[#dc2626]">
-                {currentService.priceStarting}
+
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between bg-slate-950/85 backdrop-blur-md p-3.5 rounded-lg border border-white/10 text-white">
+                <div className="flex items-center gap-2 text-xs font-mono font-semibold text-slate-200">
+                  <Clock className="w-4 h-4 text-red-400" />
+                  <span>Odhadovaný čas: {currentService.durationEstimate}</span>
+                </div>
               </div>
-            </div>
+            </AspectRatio>
           </div>
 
           {/* Details Side */}
-          <div className="lg:col-span-6 space-y-6">
+          <div className="lg:col-span-6 space-y-5">
             <div>
-              <div className="flex items-center gap-2 text-xs font-bold text-[#dc2626] uppercase tracking-wider mb-2">
+              <div className="flex items-center gap-2 text-xs font-bold text-red-600 uppercase tracking-wider mb-2 font-mono">
                 <ShieldCheck className="w-4 h-4" />
-                <span>Profesionálny Štandard</span>
+                <span>PROFESIONÁLNY ŠTANDARD</span>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold font-['Space_Grotesk'] text-white">
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
                 {currentService.title}
               </h3>
-              <p className="text-zinc-300 text-sm leading-relaxed mt-2">
+              <p className="text-slate-600 text-sm leading-relaxed mt-2">
                 {currentService.shortDesc}
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-zinc-900/80 border border-zinc-800/80 text-xs text-zinc-300 leading-relaxed">
+            <div className="p-4 rounded-xl bg-white border border-slate-200/70 text-xs sm:text-sm text-slate-600 leading-relaxed shadow-none">
               {currentService.fullDesc}
             </div>
 
             {/* Features Checklist */}
-            <div className="space-y-3">
-              <div className="text-xs font-bold text-zinc-400 uppercase tracking-wider">
-                Čo je súčasťou tejto služby:
+            <div className="space-y-2.5">
+              <div className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
+                ČO JE SÚČASŤOU TEJTO SLUŽBY:
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div className="space-y-2">
                 {currentService.features.map((feat, i) => (
-                  <div key={i} className="flex items-start gap-2 text-xs text-zinc-300 bg-black/60 p-2.5 rounded-lg border border-zinc-800/60">
-                    <CheckCircle2 className="w-4 h-4 text-[#dc2626] shrink-0 mt-0.5" />
+                  <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 bg-white p-2.5 rounded-lg border border-slate-200/60">
+                    <CheckCircle2 className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
                     <span>{feat}</span>
                   </div>
                 ))}
@@ -128,30 +150,34 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onSelectService }) =
             </div>
 
             {/* Action Bar */}
-            <div className="pt-4 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div>
-                <span className="text-xs text-zinc-500 block">Základná cena</span>
-                <span className="text-2xl font-extrabold font-['Space_Grotesk'] text-white">
-                  {currentService.priceStarting}
-                </span>
-              </div>
+            <div className="pt-4 border-t border-slate-200/70 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <button
+                type="button"
+                onClick={() => handleOpenDialog(currentService)}
+                className="w-full sm:w-auto px-5 py-3 rounded-md bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 font-semibold text-xs sm:text-sm transition-all active:scale-[0.98] cursor-pointer"
+              >
+                Detailný rozpis postupu
+              </button>
 
-              <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
-                <a
-                  href={BUSINESS_INFO.phoneTel}
-                  className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#dc2626] hover:bg-[#b91c1c] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-[#dc2626]/20 transition-all active:scale-95 shrink-0"
-                >
-                  <Phone className="w-4 h-4 text-white" />
-                  <span>Zavolať: {BUSINESS_INFO.phoneDisplay}</span>
-                </a>
-              </div>
+              <a
+                href={BUSINESS_INFO.phoneTel}
+                className="w-full sm:w-auto px-6 py-3 rounded-md bg-red-600 hover:bg-red-700 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-red-600/20 transition-all active:scale-[0.98]"
+              >
+                <Phone className="w-4 h-4 fill-white" />
+                <span>Dohodnúť termín: {BUSINESS_INFO.phoneDisplay}</span>
+              </a>
             </div>
           </div>
 
-        </div>
+        </Card>
 
       </div>
+
+      <ServiceDetailDialog
+        service={dialogService}
+        open={isDialogOpen}
+        onOpenChange={setIsDialogOpen}
+      />
     </section>
   );
 };
-

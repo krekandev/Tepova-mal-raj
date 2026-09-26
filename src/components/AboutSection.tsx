@@ -1,50 +1,61 @@
 import React from 'react';
-import { Sparkles, Facebook, Award, Star } from 'lucide-react';
+import { Facebook, Star, ShieldCheck, Sparkles, Home, Clock } from 'lucide-react';
 import { BUSINESS_INFO, ADVANTAGES } from '../data';
 
 export const AboutSection: React.FC = () => {
-  return (
-    <section id="o-nas" className="py-24 bg-zinc-950 relative overflow-hidden border-t border-zinc-900">
-      {/* Background glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-[#dc2626]/10 rounded-full blur-3xl pointer-events-none"></div>
+  const getIcon = (iconName: string) => {
+    switch (iconName) {
+      case 'ShieldCheck':
+        return <ShieldCheck className="w-5 h-5 text-red-600" />;
+      case 'Sparkles':
+        return <Sparkles className="w-5 h-5 text-red-600" />;
+      case 'Home':
+        return <Home className="w-5 h-5 text-red-600" />;
+      case 'Clock':
+        return <Clock className="w-5 h-5 text-red-600" />;
+      default:
+        return <ShieldCheck className="w-5 h-5 text-red-600" />;
+    }
+  };
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  return (
+    <section id="o-nas" className="py-20 lg:py-28 relative bg-white border-b border-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column: Owner Profile & Highlight Card */}
           <div className="lg:col-span-5 space-y-6">
-            <div>
-              <span className="text-xs font-bold tracking-widest text-[#dc2626] uppercase mb-2 block">
-                O ZNAČKE TEPOVAČ
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold font-['Space_Grotesk'] text-white leading-tight">
-                Kedy detail robí{' '}
-                <span className="text-[#dc2626]">skutočný rozdiel</span>
+            <div className="space-y-3">
+              <div className="flex items-center gap-2 font-mono text-[11px] font-semibold text-slate-400 tracking-wider">
+                <span>03</span>
+                <span>/</span>
+                <span className="text-slate-800">O NÁS & FILOZOFIA</span>
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-black text-slate-950 tracking-tighter leading-[1.02]">
+                Keď detaily robia <br />
+                <span className="text-red-600">skutočný rozdiel.</span>
               </h2>
             </div>
 
-            <p className="text-zinc-300 text-base leading-relaxed">
-              Volám sa <strong className="text-white font-semibold">Boris Hadvig</strong> a značku Tepovač som založil s jednoznačnou víziou: poskytovať poctivé, nekompromisné a detailné čistenie autotechniky a čalúneného nábytku.
+            <p className="text-slate-600 text-base leading-relaxed">
+              Volám sa <strong className="text-slate-900 font-bold">Boris Hadvig</strong> a značku Tepovač vediem s jasnou víziou: poskytovať poctivé, nekompromisné a detailné čistenie vozidiel i čalúneného nábytku priamo v lokalite Malý Raj a okolí.
             </p>
 
-            <p className="text-zinc-300 text-base leading-relaxed">
-              Namiesto rýchleho povrchového pretretia sa sústredím na hĺbkové extrakčné tepovanie, ručné dočisťovanie záhybov a leštenie laku do vysokého lesku. Ako hovoria naši spokojní klienti: <em className="text-[#dc2626] font-medium font-serif">"pán si dal naozaj záležať"</em>.
+            <p className="text-slate-600 text-base leading-relaxed">
+              Namiesto rýchleho povrchového pretretia sa sústredím na hĺbkové extrakčné tepovanie, ručné dočisťovanie záhybov a leštenie laku do vysokého lesku. Každá zákazka prechádza mojimi rukami, vďaka čomu ručím za výsledok.
             </p>
 
             {/* Quote Box */}
-            <div className="p-5 rounded-2xl bg-black border border-zinc-800 relative shadow-xl">
-              <div className="text-[#dc2626] font-serif text-3xl absolute -top-3 left-4 bg-zinc-900 px-2 rounded">“</div>
-              <p className="text-sm text-zinc-200 font-medium italic pt-2 mb-3">
-                Odporúčam, auto krásne čisté, voňavé a vyleštené, pán si dal naozaj záležať.
+            <div className="p-7 rounded-2xl bg-slate-50/90 border border-slate-200/90 shadow-md space-y-3">
+              <p className="text-sm sm:text-base text-slate-800 font-medium italic leading-relaxed">
+                „Odporúčam, auto krásne čisté, voňavé a vyleštené, pán si dal naozaj záležať.“
               </p>
-              <div className="flex items-center justify-between text-xs text-zinc-400">
-                <span className="font-semibold text-white">— Peter Holba (Hodnotenie zákazníka)</span>
-                <div className="flex gap-0.5 text-[#dc2626]">
-                  <Star className="w-3.5 h-3.5 fill-[#dc2626]" />
-                  <Star className="w-3.5 h-3.5 fill-[#dc2626]" />
-                  <Star className="w-3.5 h-3.5 fill-[#dc2626]" />
-                  <Star className="w-3.5 h-3.5 fill-[#dc2626]" />
-                  <Star className="w-3.5 h-3.5 fill-[#dc2626]" />
+              <div className="flex items-center justify-between text-xs text-slate-500 pt-3 border-t border-slate-200/70">
+                <span className="font-bold text-slate-900">Peter Holba (Overený zákazník)</span>
+                <div className="flex gap-1 text-amber-400">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                  ))}
                 </div>
               </div>
             </div>
@@ -54,14 +65,14 @@ export const AboutSection: React.FC = () => {
               href={BUSINESS_INFO.facebookUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 p-3.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 transition-all group"
+              className="inline-flex items-center gap-3.5 p-4 rounded-2xl bg-slate-50/80 hover:bg-white border border-slate-200/90 hover:border-slate-300 text-slate-800 transition-all shadow-xs hover:shadow-md group"
             >
-              <div className="w-9 h-9 rounded-lg bg-[#dc2626] flex items-center justify-center text-white shadow-md">
-                <Facebook className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              <div className="w-10 h-10 rounded-xl bg-slate-950 flex items-center justify-center text-white shadow-xs">
+                <Facebook className="w-4 h-4 text-red-500" />
               </div>
               <div>
-                <div className="text-xs text-zinc-400 font-medium">Sledujte našu prácu live:</div>
-                <div className="text-sm font-bold text-white group-hover:text-[#dc2626] transition-colors">
+                <div className="text-xs text-slate-500 font-medium">Sledujte našu prácu a výsledky:</div>
+                <div className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-red-600 transition-colors">
                   Facebook Tepovač ({BUSINESS_INFO.followersCount} sledovateľov)
                 </div>
               </div>
@@ -73,12 +84,15 @@ export const AboutSection: React.FC = () => {
             {ADVANTAGES.map((adv, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-black border border-zinc-800 hover:border-[#dc2626]/50 transition-all group shadow-lg"
+                className="p-7 rounded-2xl bg-slate-50/70 hover:bg-white border border-slate-200/90 hover:border-slate-300 transition-all shadow-xs hover:shadow-xl hover:-translate-y-0.5 space-y-3"
               >
-                <h3 className="text-lg font-bold text-white mb-2 font-['Space_Grotesk'] group-hover:text-[#dc2626] transition-colors">
+                <div className="p-2.5 rounded-xl bg-white border border-slate-200 shadow-2xs w-fit">
+                  {getIcon(adv.icon)}
+                </div>
+                <h3 className="text-base sm:text-lg font-bold text-slate-950">
                   {adv.title}
                 </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                   {adv.description}
                 </p>
               </div>

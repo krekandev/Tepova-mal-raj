@@ -1,84 +1,109 @@
-import { ServiceItem, Review, ServiceArea } from './types';
+import { ServiceItem, Review, ServiceArea, FAQItem, ProcessStep } from './types';
 
-import heroBgImage from './assets/images/detailing_hero_bg_1786616621233.jpg';
-import carUploadedImg from './assets/images/car-5725327_1280.jpg';
-import logoImg from './assets/images/logo tepovac.png';
+import logoImg from './assets/images/logo_light.png';
 import interiorImage from './assets/images/interiersluzby.jfif';
 import polishingImage from './assets/images/voskovaniekaroseria.jpg';
 import furnitureImage from './assets/images/nabytok.jfif';
+import slsCarCutout from './assets/images/sls_tepovac_clean.png';
+import heroBgImage from './assets/images/hero-bg.jpg';
+import logoDarkHeader from './assets/images/logo_dark_header.png';
 
-export { heroBgImage, carUploadedImg, logoImg };
+export { logoImg, logoDarkHeader, slsCarCutout, heroBgImage };
 
 export const BUSINESS_INFO = {
   name: 'Tepovač',
+  subBrand: 'Tepovanie & Detailing Malý Raj',
   owner: 'Boris Hadvig',
   phoneDisplay: '0911 850 522',
   phoneInternational: '+421 911 850 522',
   phoneTel: 'tel:+421911850522',
-  address: 'Južná 27, 900 26 Slovenský Grob',
+  address: 'Južná 27, 900 26 Slovenský Grob (Malý Raj)',
+  baseLocation: 'Malý Raj, Slovenský Grob',
   instagramUrl: 'https://www.instagram.com/BorisHadvig',
-  instagramHandle: '@BorisHadvig',
+  instagramHandle: 'BorisHadvig',
   facebookUrl: 'https://www.facebook.com/profile.php?id=100063442699140',
-  primaryLocations: ['Bratislava', 'Senec', 'Pezinok', 'Bernolákovo', 'Ivanka pri Dunaji', 'Svätý Jur', 'Rovinka', 'Dunajská Lužná'],
-  serviceAreasText: 'Bratislava, Senec, Pezinok a široké okolie',
+  facebookName: 'Tepovač',
+  primaryLocations: ['Malý Raj', 'Slovenský Grob', 'Bratislava', 'Senec', 'Pezinok', 'Bernolákovo', 'Ivanka pri Dunaji', 'Svätý Jur'],
+  serviceAreasText: 'Slovenský Grob (Malý Raj), Bratislava, Senec, Pezinok a okolie',
   followersCount: '800+',
   satisfactionRate: '100%',
+  workingHours: 'Pondelok - Nedeľa: 8:00 - 20:00 (podľa dohody)',
 };
 
 export const SERVICES: ServiceItem[] = [
   {
     id: 'car-detailing',
     title: 'Čistenie & Tepovanie áut',
-    shortDesc: 'Kompletné hĺbkové čistenie interiéru, tepovanie sedadiel, starostlivosť o kožu a umytie exteriéru.',
-    fullDesc: 'Profesionálne hĺbkové tepovanie látkových sedadiel a kobercov s extrakčnou technológiou. Čistenie, výživa a impregnácia kožených interiérov, detailné vyčistenie palubnej dosky, plastov, stropnice, kufra a vetracích otvorov.',
-    priceStarting: 'od 50 €',
+    shortDesc: 'Kompletné hĺbkové čistenie interiéru, precízne tepovanie sedadiel, starostlivosť o kožu, plasty a okná.',
+    fullDesc: 'Profesionálne hĺbkové tepovanie textilných sedadiel, kobercov a batožinového priestoru s výkonnou extrakčnou technológiou. Čistenie, výživa a impregnácia kožených interiérov, detailné vyčistenie palubnej dosky, plastov, pedálov, medzidverových priestorov a vetracích otvorov.',
     durationEstimate: '3 - 5 hodín',
     iconName: 'Car',
     imageUrl: interiorImage,
-    popularTag: 'Najobľúbenejšie',
+    popularTag: 'Najžiadanejšie',
     features: [
-      'Hĺbkové tepovanie sedadiel, koberčekov a kufra',
-      'Špeciálne čistenie a impregnácia kože',
-      'Detailné čistenie plastov, medzidverových priestorov a skiel',
-      'Eliminácia zápachov a mikroorganizmov',
-      'Šetrné sušenie interiéru bez rizika plesní'
-    ]
-  },
-  {
-    id: 'polishing-waxing',
-    title: 'Leštenie & Voskovanie karosérie',
-    shortDesc: 'Strojové leštenie laku, odstránenie mikroškrabancov, obnovenie hlbokého lesku a ochranný vosk.',
-    fullDesc: 'Navráťte vášmu vozidlu showroomový lesk! Vykonávame korekciu laku, odstraňujeme jemné škrabance (swirly) z umyváriat a oxidáciu. Na záver aplikujeme vysokokvalitný syntetický alebo hybridný vosk/keramiku pre stekanec vody a UV ochranu.',
-    priceStarting: 'od 90 €',
-    durationEstimate: '4 - 8 hodín',
-    iconName: 'Sparkles',
-    imageUrl: polishingImage,
-    popularTag: 'Vysoký Lesk',
-    features: [
-      'Jednokrokové alebo viacstupňové strojové leštenie laku',
-      'Odstránenie hologramov a jemných škrabancov',
-      'Dekontaminácia laku (clay bar) pred leštením',
-      'Aplikácia prémiového vosku alebo nanokeramiky',
-      'Ošetrenie vonkajších plastov a pneumatík'
+      'Hĺbkové extrakčné tepovanie sedadiel, kobercov a kufra',
+      'Detailné čistenie a impregnácia plastov i medzidverových priestorov',
+      'Špeciálne šetrné čistenie a výživa kožených povrchov',
+      'Odstránenie zápachov, roztočov a mikroskopických nečistôt',
+      'Rýchle a šetrné preschnutie interiéru bez zatuchnutia'
     ]
   },
   {
     id: 'furniture-upholstery',
     title: 'Hĺbkové tepovanie nábytku',
-    shortDesc: 'Tepovanie sedačiek, kresiel, matracov a stoličiek u vás doma alebo v firme s rýchlym schnutím.',
-    fullDesc: 'Priamo u vás doma vytepujeme a vyčistíme čalúnený nábytok. Používame špičkové extrakčné tepovače a overené ekologické čistiace prostriedky, ktoré odstraňujú škvrny, roztoče, prachové alergény a neprijemný zápach.',
-    priceStarting: 'od 30 €',
+    shortDesc: 'Tepovanie sedacích súprav, kresiel, matracov a stoličiek priamo u vás doma alebo vo firme.',
+    fullDesc: 'Profesionálne extrakčné čistenie čalúneného nábytku priamo u vás doma. Používame špičkové priemyselné tepovače a certifikovanú, ekologicky odbúrateľnú chémiu bezpečnú pre deti i domáce zvieratá. Odstraňujeme zažratú špinu, škvrny od nápojov, zvieracie pachy a alergény.',
     durationEstimate: '1 - 3 hodiny',
     iconName: 'Sofa',
     imageUrl: furnitureImage,
-    popularTag: 'Pre Vašu Domácnosť',
+    popularTag: 'Mobilný servis u vás',
     features: [
-      'Tepovanie sedacích súprav (rohové, U-tvar, rozkladacie)',
+      'Tepovanie sedacích súprav (rovné, rohové, U-tvar, rozkladacie)',
       'Hĺbkové čistenie matracov, kresiel a jedálenských stoličiek',
-      'Odstránenie škvŕn od kávy, vína, krvi či domácich miláčikov',
-      'Neutralizácia zápachu a dezinfekcia textilu',
-      'Šetrná chémia bezpečná pre deti a zvieratá'
+      'Účinné odstránenie škvŕn (káva, víno, jedlo, domáce zvieratá)',
+      'Hygienická dezinfekcia textilu a neutralizácia pachov',
+      'Certifikovaná chémia šetrná k textilu aj citlivým osobám'
     ]
+  },
+  {
+    id: 'polishing-waxing',
+    title: 'Leštenie & Voskovanie karosérie',
+    shortDesc: 'Viacstupňové strojové leštenie laku, odstránenie mikroškrabancov, hlboký lesk a prémiová ochrana voskom.',
+    fullDesc: 'Navráťte laku vášho vozidla hlboký showroomový lesk a jasnú farbu. Vykonávame dôkladnú chemickú i mechanickú dekontamináciu laku (clay bar), strojové leštenie s odstránením jemných škrabancov (swirls) a následnú aplikáciu prémiového syntetického vosku alebo nano ochrany pre odpudzovanie vody a ochranu pred UV žiarením.',
+    durationEstimate: '4 - 8 hodín',
+    iconName: 'Sparkles',
+    imageUrl: polishingImage,
+    popularTag: 'Prémiová starostlivosť',
+    features: [
+      'Dôkladné umytie a dekontaminácia laku (clay bar) pred leštením',
+      'Jednokroková alebo viackroková korekcia laku a mikroškrabancov',
+      'Obnova hlbokého lesku, jasu a odstránenie oxidácie',
+      'Aplikácia prémiového hybridného vosku alebo keramickej ochrany',
+      'Ošetrenie vonkajších plastových líšt a impregnácia pneumatík'
+    ]
+  }
+];
+
+export const PROCESS_STEPS: ProcessStep[] = [
+  {
+    number: '01',
+    title: 'Dohodnutie termínu',
+    desc: 'Zavoláte na 0911 850 522, preberieme stav vozidla alebo nábytku a dohodneme si vyhovujúci čas.'
+  },
+  {
+    number: '02',
+    title: 'Príchod na adresu / Odovzdanie',
+    desc: 'Prídeme k vám domov v rámci Senca, Grobu, Pezinka a Bratislavy, prípadne pristavíte auto priamo v Malom Raji.'
+  },
+  {
+    number: '03',
+    title: 'Poctivá práca bez náhlenia',
+    desc: 'Používame priemyselné extraktory a prémiovú chémiu. Venujeme sa každému záhybu a štrbine.'
+  },
+  {
+    number: '04',
+    title: 'Osobná kontrola a odovzdanie',
+    desc: 'Boris Hadvig osobne skontroluje výsledok pred odovzdaním. Platíte až po vašej úplnej spokojnosti.'
   }
 ];
 
@@ -90,73 +115,100 @@ export const REVIEWS: Review[] = [
     quote: 'Odporúčam, auto krásne čisté, voňavé a vyleštené, pán si dal naozaj záležať.',
     rating: 5,
     serviceType: 'Kompletný auto detailing & leštenie',
-    date: 'Nedávno',
+    date: 'Overený zákazník',
     avatarInitial: 'P'
   },
   {
     id: '2',
     author: 'Michaela Čalfová',
-    location: 'Bratislava',
-    quote: 'Odporúčame, auto krásne vyčistené.',
+    location: 'Bratislava & okolie',
+    quote: 'Odporúčame všetkými desiatimi, interiér auta bol vyčistený do poslednej štrbiny a vôňa vydržala týždne.',
     rating: 5,
     serviceType: 'Tepovanie interiéru auta',
-    date: 'Nedávno',
+    date: 'Overený zákazník',
     avatarInitial: 'M'
   },
   {
     id: '3',
     author: 'Martin K.',
-    location: 'Senec',
-    quote: 'Skvelá komunikácia, ústrety prístup a sedačka vyzerá ako nová zo showroomu! Určite zavolám znova.',
+    location: 'Senec / Malý Raj',
+    quote: 'Skvelá komunikácia, ústretový a poctivý prístup. Sedačka po deťoch vyzerá znova ako z predajne. Určite zavolám znova.',
     rating: 5,
-    serviceType: 'Tepovanie gauča & kresiel',
-    date: 'Pred týždňom',
+    serviceType: 'Hĺbkové tepovanie sedacej súpravy',
+    date: 'Overený zákazník',
     avatarInitial: 'M'
   }
 ];
 
 export const SERVICE_AREAS: ServiceArea[] = [
   {
-    name: 'Bratislava',
-    badge: 'Mobilná služba',
-    description: 'Všetky mestské časti (Ružinov, Petržalka, Dúbravka, Rača, Vrakuňa, Záhorská Bystrica atď.)'
+    name: 'Slovenský Grob & Malý Raj',
+    badge: 'Centrála / Bez doplatku za dojazd',
+    description: 'Sídlo prevádzky. Rýchly servis priamo v lokalite Malý Raj a obci Slovenský Grob.'
   },
   {
     name: 'Senec & Okolie',
-    badge: 'Sídlo / Rýchly dojazd',
-    description: 'Senec, Bernolákovo, Ivanka pri Dunaji, Veľký Biel, Tureň, Kráľová pri Senci'
+    badge: 'Rýchly dojazd',
+    description: 'Senec, Bernolákovo, Ivanka pri Dunaji, Veľký Biel, Kráľová pri Senci a priľahlé obce.'
   },
   {
     name: 'Pezinok & Okolie',
     badge: 'Pravidelné trasy',
-    description: 'Pezinok, Svätý Jur, Slovenský Grob, Viničné, Modra, Šenkvice'
+    description: 'Pezinok, Svätý Jur, Viničné, Šenkvice, Modra, Limbach.'
   },
   {
-    name: 'Priľahlé obce',
-    badge: 'Dohodou',
-    description: 'Rovinka, Dunajská Lužná, Kvetoslavov, Malinovo, Zálesie a okolité obce do 35 km'
+    name: 'Bratislava & Okrajové časti',
+    badge: 'Mobilný servis',
+    description: 'Ružinov, Rača, Vajnory, Podunajské Biskupice, Petržalka a ďalšie mestské časti po dohode.'
   }
 ];
 
 export const ADVANTAGES = [
   {
     icon: 'ShieldCheck',
-    title: 'Precízna práca ("Pán si dal naozaj záležať")',
-    description: 'Neustále sa sústredíme na detaily, ktoré iní prehliadajú. Každý záhyb, medzera a štrbina dostane maximálnu starostlivosť.'
+    title: 'Prístup "Pán si dal naozaj záležať"',
+    description: 'Neodfláknuté rýchle pretretie. Boris Hadvig ručí za precíznosť, čisté záhyby, koľajnice a detaily, ktoré iní prehliadnu.'
   },
   {
     icon: 'Sparkles',
-    title: 'Špičková technológia & Chémia',
-    description: 'Používame overené priemyselné tepovače a neagresívnu prémiovú autokozmetiku, ktorá nepoškodzuje povrchy.'
+    title: 'Špičková technológia a chémia',
+    description: 'Používame overené priemyselné extrakčné tepovače a neagresívnu, certifikovanú autokozmetiku, ktorá neničí povrchy.'
   },
   {
-    icon: 'Users',
-    title: 'Komunita 800+ Sledovateľov',
-    description: 'Našu prácu denne sleduje viac ako 800 fanúšikov na Facebooku (Tepovač), kde pravidelne uverejňujeme reálne výsledky a fotky.'
+    icon: 'Home',
+    title: 'Maximálne pohodlie - mobilný servis',
+    description: 'Tepovanie nábytku (sedačky, matrace, kreslá) vykonávame priamo u vás doma. Nepotrebujete nič sťahovať ani prenášať.'
   },
   {
     icon: 'Clock',
-    title: 'Flexibilita & Osobný prístup',
-    description: 'Majiteľ Boris Hadvig ručí za kvalitu každého odovzdaného auta alebo vyčisteného kus nábytku.'
+    title: 'Férové jednanie a flexibilita',
+    description: 'Žiadne skryté poplatky. Vopred viete odhad ceny a termín prispôsobíme vašim časovým možnostiam, aj cez víkend.'
+  }
+];
+
+export const FAQS: FAQItem[] = [
+  {
+    question: 'Ako dlho trvá tepovanie auta alebo sedacej súpravy?',
+    answer: 'Kompletné hĺbkové čistenie bežného interiéru auta trvá približne 3 až 5 hodín. Tepovanie štandardnej rohovej sedačky zaberie cca 1,5 až 2,5 hodiny v závislosti od stupňa znečistenia a veľkosti.'
+  },
+  {
+    question: 'Ako dlho schne vytepovaný interiér alebo sedačka?',
+    answer: 'Vďaka výkonným priemyselným extraktorom, ktoré odsajú drvivú väčšinu tekutiny späť do zbernej nádrže, zostáva látka iba mierne vlhká. V štandardne vetranej a vykúrenej miestnosti či aute preschne zvyčajne za 3 až 6 hodín.'
+  },
+  {
+    question: 'Prídete vytepovať nábytok priamo ku mne domov?',
+    answer: 'Áno, hĺbkové tepovanie sedacích súprav, matracov, kresiel a stoličiek vykonávame priamo u zákazníka v lokalitách Malý Raj, Slovenský Grob, Pezinok, Senec, Bratislava a v priľahlých obciach.'
+  },
+  {
+    question: 'Čo je potrebné zabezpečiť k tepovaniu nábytku?',
+    answer: 'Potrebujeme len prístup k bežnej elektrickej zásuvke (230 V) a prístup k tečúcej vode na napustenie čistej vody a vyliatie zbernej nádoby. Všetky stroje, hadice a chémiu si prinesieme so sebou.'
+  },
+  {
+    question: 'Je použitá chémia bezpečná pre deti a domáce zvieratá?',
+    answer: 'Jednoznačne. Používame šetrnú, certifikovanú a biologicky odbúrateľnú chémiu od popredných európskych výrobcov, ktorá je po vyschnutí úplne bezpečná pre deti aj domáce zvieratá a neutralizuje alergény i pachy.'
+  },
+  {
+    question: 'Ako si môžem objednať termín?',
+    answer: 'Najrýchlejšie a najjednoduchšie je zavolať priamo Borisovi Hadvigovi na číslo 0911 850 522. Dohodneme si rozsah prác a termín, ktorý vám vyhovuje.'
   }
 ];

@@ -3,7 +3,6 @@ export interface ServiceItem {
   title: string;
   shortDesc: string;
   fullDesc: string;
-  priceStarting: string;
   durationEstimate: string;
   iconName: string;
   imageUrl: string;
@@ -28,24 +27,13 @@ export interface ServiceArea {
   description: string;
 }
 
-export interface CalculatorState {
-  category: 'auto' | 'furniture';
-  vehicleType: 'hatchback' | 'sedan' | 'suv' | 'van';
-  furnitureType: 'gauc' | 'kreslo' | 'stolicky' | 'matrac';
-  packageType: 'basic' | 'complete' | 'premium';
-  addons: {
-    ozon: boolean;
-    leatherProtection: boolean;
-    textileProtection: boolean;
-    petHairRemoval: boolean;
-  };
+export interface FAQItem {
+  question: string;
+  answer: string;
 }
 
-export interface BookingFormData {
-  name: string;
-  phone: string;
-  email?: string;
-  city: string;
-  serviceCategory: string;
-  note?: string;
+export interface ProcessStep {
+  number: string;
+  title: string;
+  desc: string;
 }
