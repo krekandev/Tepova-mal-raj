@@ -431,7 +431,16 @@ export const LiquidGlassViewport = React.forwardRef<HTMLDivElement, LiquidGlassV
             className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden will-change-[filter] [transform:translateZ(0)]"
             style={{ filter: mode === "svg" ? `url(#${filterId0})` : "none" }}
           >
-            <div className="absolute inset-0 w-[102%] h-[102%] -left-[1%] -top-[1%] bg-cover bg-center" style={{ backgroundImage: `url(${bgImage})` }} />
+            {/* High-priority discoverable LCP element for Lighthouse */}
+            <img
+              src={bgImage}
+              alt=""
+              aria-hidden="true"
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+              className="absolute inset-0 w-[102%] h-[102%] -left-[1%] -top-[1%] object-cover object-center pointer-events-none"
+            />
           </div>
 
           <svg className="absolute w-0 h-0 overflow-hidden pointer-events-none" xmlns="http://www.w3.org/2000/svg">

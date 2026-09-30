@@ -26,10 +26,10 @@ export const AboutSection: React.FC = () => {
           {/* Left Column: Owner Profile & Highlight Card */}
           <div className="lg:col-span-5 space-y-6">
             <div className="space-y-3">
-              <div className="flex items-center gap-2 font-mono text-[11px] font-semibold text-slate-400 tracking-wider">
+              <div className="flex items-center gap-2 font-mono text-[11px] font-semibold text-slate-600 tracking-wider">
                 <span>03</span>
                 <span>/</span>
-                <span className="text-slate-800">O NÁS & FILOZOFIA</span>
+                <span className="text-slate-900">O NÁS & FILOZOFIA</span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-black text-slate-950 tracking-tighter leading-[1.02]">
                 Keď detaily robia <br />
@@ -37,11 +37,11 @@ export const AboutSection: React.FC = () => {
               </h2>
             </div>
 
-            <p className="text-slate-600 text-base leading-relaxed">
+            <p className="text-slate-700 text-base leading-relaxed">
               Volám sa <strong className="text-slate-900 font-bold">Boris Hadvig</strong> a značku Tepovač vediem s jasnou víziou: poskytovať poctivé, nekompromisné a detailné čistenie vozidiel i čalúneného nábytku priamo v lokalite Malý Raj a okolí.
             </p>
 
-            <p className="text-slate-600 text-base leading-relaxed">
+            <p className="text-slate-700 text-base leading-relaxed">
               Namiesto rýchleho povrchového pretretia sa sústredím na hĺbkové extrakčné tepovanie, ručné dočisťovanie záhybov a leštenie laku do vysokého lesku. Každá zákazka prechádza mojimi rukami, vďaka čomu ručím za výsledok.
             </p>
 
@@ -50,9 +50,9 @@ export const AboutSection: React.FC = () => {
               <p className="text-sm sm:text-base text-slate-800 font-medium italic leading-relaxed">
                 „Odporúčam, auto krásne čisté, voňavé a vyleštené, pán si dal naozaj záležať.“
               </p>
-              <div className="flex items-center justify-between text-xs text-slate-500 pt-3 border-t border-slate-200/70">
+              <div className="flex items-center justify-between text-xs text-slate-600 pt-3 border-t border-slate-200/70">
                 <span className="font-bold text-slate-900">Peter Holba (Overený zákazník)</span>
-                <div className="flex gap-1 text-amber-400">
+                <div className="flex gap-1 text-amber-500">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                   ))}
