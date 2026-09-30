@@ -95,6 +95,10 @@ export const ServicesGrid: React.FC = () => {
               <img
                 src={currentService.imageUrl}
                 alt={currentService.title}
+                width={1200}
+                height={675}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700"
                 referrerPolicy="no-referrer"
               />

@@ -439,6 +439,8 @@ export const LiquidGlassViewport = React.forwardRef<HTMLDivElement, LiquidGlassV
               fetchPriority="high"
               loading="eager"
               decoding="async"
+              width={1920}
+              height={1080}
               className="absolute inset-0 w-[102%] h-[102%] -left-[1%] -top-[1%] object-cover object-center pointer-events-none"
             />
           </div>

@@ -44,6 +44,8 @@ export const Navbar: React.FC = () => {
             <img
               src={isHeroDark ? logoDarkHeader : logoImg}
               alt="Tepovač - Boris Hadvig"
+              width={160}
+              height={44}
               className="h-10 sm:h-11 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
             />
             <div className="hidden sm:block">

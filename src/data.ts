@@ -1,12 +1,12 @@
 import { ServiceItem, Review, ServiceArea, FAQItem, ProcessStep } from './types';
 
-import logoImg from './assets/images/logo_light.png';
-import interiorImage from './assets/images/interiersluzby.jfif';
-import polishingImage from './assets/images/voskovaniekaroseria.jpg';
-import furnitureImage from './assets/images/nabytok.jfif';
+import logoImg from './assets/images/logo_light.webp';
+import interiorImage from './assets/images/interiersluzby.webp';
+import polishingImage from './assets/images/voskovaniekaroseria.webp';
+import furnitureImage from './assets/images/nabytok.webp';
 import slsCarCutout from './assets/images/sls_tepovac_clean.png';
-import heroBgImage from './assets/images/hero-bg.jpg';
-import logoDarkHeader from './assets/images/logo_dark_header.png';
+import heroBgImage from './assets/images/hero-bg.webp';
+import logoDarkHeader from './assets/images/logo_dark_header.webp';
 
 export { logoImg, logoDarkHeader, slsCarCutout, heroBgImage };
 

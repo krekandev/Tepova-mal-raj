@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
           {/* Brand Info */}
           <div className="md:col-span-2 space-y-4">
             <Link to="/" className="flex items-center gap-3">
-              <img src={logoImg} alt="Tepovač logo" className="h-10 w-auto object-contain" />
+              <img src={logoImg} alt="Tepovač logo" width={140} height={40} className="h-10 w-auto object-contain" />
               <div>
                 <span className="text-xl font-black tracking-tight text-slate-900 block">
                   TEPOVAČ

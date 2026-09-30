@@ -76,6 +76,10 @@ export const HomePage: React.FC = () => {
                   <img
                     src={carService.imageUrl}
                     alt={carService.title}
+                    width={1200}
+                    height={675}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
@@ -152,6 +156,10 @@ export const HomePage: React.FC = () => {
                     <img
                       src={polishService.imageUrl}
                       alt={polishService.title}
+                      width={1200}
+                      height={675}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent" />
@@ -208,6 +216,10 @@ export const HomePage: React.FC = () => {
                     <img
                       src={furnitureService.imageUrl}
                       alt={furnitureService.title}
+                      width={1200}
+                      height={675}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent" />
