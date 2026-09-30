@@ -83,7 +83,9 @@ export const Hero: React.FC = () => {
                 <span>Slovenský Grob (Malý Raj), Senec, Pezinok & okolie</span>
               </span>
               <span className="text-white/20 hidden sm:inline">•</span>
-              <span className="text-slate-400">Mobilný príchod priamo k vám</span>
+              <span className="px-2 py-0.5 rounded bg-red-600/20 text-red-300 border border-red-500/30 font-semibold">
+                Auto u nás ostáva 24h • Odovzdávame 100% suché
+              </span>
             </div>
 
           </div>

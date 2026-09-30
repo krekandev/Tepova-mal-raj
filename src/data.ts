@@ -36,7 +36,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'Čistenie & Tepovanie áut',
     shortDesc: 'Kompletné hĺbkové čistenie interiéru, precízne tepovanie sedadiel, starostlivosť o kožu, plasty a okná.',
     fullDesc: 'Profesionálne hĺbkové tepovanie textilných sedadiel, kobercov a batožinového priestoru s výkonnou extrakčnou technológiou. Čistenie, výživa a impregnácia kožených interiérov, detailné vyčistenie palubnej dosky, plastov, pedálov, medzidverových priestorov a vetracích otvorov.',
-    durationEstimate: '3 - 5 hodín',
+    durationEstimate: '4 - 8 hodín (24h s preschnutím)',
     iconName: 'Car',
     imageUrl: interiorImage,
     popularTag: 'Najžiadanejšie',
@@ -45,7 +45,7 @@ export const SERVICES: ServiceItem[] = [
       'Detailné čistenie a impregnácia plastov i medzidverových priestorov',
       'Špeciálne šetrné čistenie a výživa kožených povrchov',
       'Odstránenie zápachov, roztočov a mikroskopických nečistôt',
-      'Rýchle a šetrné preschnutie interiéru bez zatuchnutia'
+      'Vozidlo u nás ostáva 24 hodín – odovzdávame ho 100% suché a pripravené na jazdu'
     ]
   },
   {
@@ -97,13 +97,13 @@ export const PROCESS_STEPS: ProcessStep[] = [
   },
   {
     number: '03',
-    title: 'Poctivá práca bez náhlenia',
-    desc: 'Používame priemyselné extraktory a prémiovú chémiu. Venujeme sa každému záhybu a štrbine.'
+    title: 'Poctivá práca & 24h schnutie',
+    desc: 'Používame priemyselné extraktory a prémiovú chémiu. Auto u nás ostáva 24 hodín pre kompletné vyschnutie interiéru.'
   },
   {
     number: '04',
-    title: 'Osobná kontrola a odovzdanie',
-    desc: 'Boris Hadvig osobne skontroluje výsledok pred odovzdaním. Platíte až po vašej úplnej spokojnosti.'
+    title: 'Odovzdanie 100% suchého auta',
+    desc: 'Boris Hadvig osobne skontroluje výsledok. Auto odovzdávame voňavé a úplne suché, pripravené ihneď na jazdu.'
   }
 ];
 
@@ -170,6 +170,11 @@ export const ADVANTAGES = [
     description: 'Neodfláknuté rýchle pretretie. Boris Hadvig ručí za precíznosť, čisté záhyby, koľajnice a detaily, ktoré iní prehliadnu.'
   },
   {
+    icon: 'Clock',
+    title: '24h proces & 100% suché auto',
+    description: 'Vozidlá u nás ostávajú 24 hodín. Dôkladne ich vysušíme, takže vám ich odovzdávame úplne suché a voňavé bez rizika zatuchnutia.'
+  },
+  {
     icon: 'Sparkles',
     title: 'Špičková technológia a chémia',
     description: 'Používame overené priemyselné extrakčné tepovače a neagresívnu, certifikovanú autokozmetiku, ktorá neničí povrchy.'
@@ -178,22 +183,17 @@ export const ADVANTAGES = [
     icon: 'Home',
     title: 'Maximálne pohodlie - mobilný servis',
     description: 'Tepovanie nábytku (sedačky, matrace, kreslá) vykonávame priamo u vás doma. Nepotrebujete nič sťahovať ani prenášať.'
-  },
-  {
-    icon: 'Clock',
-    title: 'Férové jednanie a flexibilita',
-    description: 'Žiadne skryté poplatky. Vopred viete odhad ceny a termín prispôsobíme vašim časovým možnostiam, aj cez víkend.'
   }
 ];
 
 export const FAQS: FAQItem[] = [
   {
     question: 'Ako dlho trvá tepovanie auta alebo sedacej súpravy?',
-    answer: 'Kompletné hĺbkové čistenie bežného interiéru auta trvá približne 3 až 5 hodín. Tepovanie štandardnej rohovej sedačky zaberie cca 1,5 až 2,5 hodiny v závislosti od stupňa znečistenia a veľkosti.'
+    answer: 'Kompletné precízne hĺbkové čistenie a tepovanie interiéru auta trvá približne 4 až 8 hodín podľa miery znečistenia a kategórie vozidla. Vozidlo u nás ostáva 24 hodín v sušiacej fáze, aby sme vám ho odovzdali dokonale suché. Tepovanie štandardnej rohovej sedačky zaberie cca 1,5 až 2,5 hodiny.'
   },
   {
-    question: 'Ako dlho schne vytepovaný interiér alebo sedačka?',
-    answer: 'Vďaka výkonným priemyselným extraktorom, ktoré odsajú drvivú väčšinu tekutiny späť do zbernej nádrže, zostáva látka iba mierne vlhká. V štandardne vetranej a vykúrenej miestnosti či aute preschne zvyčajne za 3 až 6 hodín.'
+    question: 'Ako dlho schne vytepované auto a sedačka?',
+    answer: 'Pri čistení áut u nás vozidlo ostáva celkovo 24 hodín. Vďaka tomu od nás odchádza 100% suché, voňavé a pripravené na okamžité bezstarostné jazdenie bez rizika zaparenia či zahmlievania okien. Pri tepovaní nábytku priamo u vás doma sedačka preschne zvyčajne za 3 až 6 hodín.'
   },
   {
     question: 'Prídete vytepovať nábytok priamo ku mne domov?',

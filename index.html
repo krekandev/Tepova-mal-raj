@@ -12,6 +12,113 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- AI & Search Engine Structured Data (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["LocalBusiness", "AutoDetailing"],
+          "@id": "https://tepovacmalyraj.sk/#business",
+          "name": "Tepovač - Tepovanie & Detailing Malý Raj",
+          "alternateName": "Boris Hadvig - Tepovač",
+          "url": "https://tepovacmalyraj.sk/",
+          "telephone": "+421911850522",
+          "priceRange": "$$",
+          "image": "https://tepovacmalyraj.sk/logo_light.png",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Južná 27",
+            "addressLocality": "Slovenský Grob",
+            "postalCode": "900 26",
+            "addressRegion": "Malý Raj",
+            "addressCountry": "SK"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 48.2435,
+            "longitude": 17.2917
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "opens": "08:00",
+              "closes": "20:00"
+            }
+          ],
+          "areaServed": [
+            { "@type": "AdministrativeArea", "name": "Malý Raj" },
+            { "@type": "AdministrativeArea", "name": "Slovenský Grob" },
+            { "@type": "AdministrativeArea", "name": "Senec" },
+            { "@type": "AdministrativeArea", "name": "Pezinok" },
+            { "@type": "AdministrativeArea", "name": "Bratislava" },
+            { "@type": "AdministrativeArea", "name": "Bernolákovo" },
+            { "@type": "AdministrativeArea", "name": "Ivanka pri Dunaji" },
+            { "@type": "AdministrativeArea", "name": "Svätý Jur" }
+          ],
+          "founder": {
+            "@type": "Person",
+            "name": "Boris Hadvig",
+            "jobTitle": "Majiteľ a špecialista na detailing"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Služby čistenia a detailingu",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Čistenie a hĺbkové tepovanie áut",
+                  "description": "Kompletné hĺbkové tepovanie textilných sedadiel, kobercov a kufra, čistenie a impregnácia kože a plastov. Trvanie 4 až 8 hodín. Vozidlo ostáva 24 hodín a odovzdáva sa 100% suché."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Hĺbkové tepovanie sedacích súprav a nábytku",
+                  "description": "Mobilné tepovanie sedačiek, matracov, kresiel a stoličiek priamo u zákazníka doma alebo vo firme v lokalitách Slovenský Grob, Malý Raj, Senec, Pezinok a Bratislava."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Strojové leštenie laku a voskovanie karosérie",
+                  "description": "Dekontaminácia laku (clay bar), strojová korekcia laku s odstránením mikroškrabancov a aplikácia ochranného prémiového vosku."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://tepovacmalyraj.sk/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Ako dlho trvá tepovanie auta a ako prebieha schnutie?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Kompletné precízne hĺbkové čistenie interiéru auta trvá približne 4 až 8 hodín. Vozidlá u nás ostávajú celkovo 24 hodín pre fázu dôkladného sušenia a zákazníkovi ich odovzdávame 100% suché a voňavé."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Prídete vytepovať nábytok priamo ku mne domov?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Áno, hĺbkové tepovanie sedacích súprav, matracov a stoličiek vykonávame priamo u zákazníka v lokalitách Malý Raj, Slovenský Grob, Pezinok, Senec, Bratislava a okolí."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body class="bg-slate-50 text-slate-900 antialiased selection:bg-red-600 selection:text-white overflow-x-hidden">
     <div id="root"></div>
